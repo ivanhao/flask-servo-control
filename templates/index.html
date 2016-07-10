@@ -1,29 +1,136 @@
-<html lang="en"><head>
-		<meta charset="utf-8">
-		<title>Tiny Project</title>
-		<!--<link rel=stylesheet type=text/css href='/static/style.css'>-->
-	</head>
-	<body>
-		<div class="page">
-  			<h1>User Input</h1>
-  			<div class="metanav">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Servo Controller</title>
+<!--<link rel=stylesheet type=text/css href='/static/style.css'>-->
+<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-slider.min.css')}}">
+</head>
+<body>
+	<div class="container">
+	    <div class="col-md-4" style="height:40px;">
+  		    <h3 style="float:left;">舵机控制Servo Ctrl</h3><a style="float:left;padding:20px 0 20px 10px;" onclick="logout()" href="#">退出登录</a>
+	    </div>
+	    <br><br>
+	    <div class="row">
+	        <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机 1 : </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s1" data-slider-id='slider1' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s1v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo1" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机 2 : </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s2" data-slider-id='slider2' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s2v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo2" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机 3 : </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s3" data-slider-id='slider3' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s3v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo3" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机 4 : </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s4" data-slider-id='slider4' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s4v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo4" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机 5 : </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s5" data-slider-id='slider5' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s5v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo5" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机 6 : </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s6" data-slider-id='slider6' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s6v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo6" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机 7 : </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s7" data-slider-id='slider7' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s7v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo7" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机 8 : </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s8" data-slider-id='slider8' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s8v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo8" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机 9 : </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s9" data-slider-id='slider9' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s9v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo9" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机10: </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s10" data-slider-id='slider10' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s10v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo10" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机11: </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s11" data-slider-id='slider11' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s11v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo11" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机12: </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s12" data-slider-id='slider12' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s12v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo12" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机13: </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s13" data-slider-id='slider13' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s13v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo13" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机14: </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s14" data-slider-id='slider14' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s14v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo14" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机15: </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s15" data-slider-id='slider15' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s15v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo15" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
+	        <br>
+            <div class="row">
+	            <div class="col-md-1" style="float:left;"><a>舵机16: </a></div>
+	            <div class="col-md-2" style="float:left;"><input id="s16" data-slider-id='slider16' type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="0"/></div>
+	            <div class="col-md-1" style="float:left;"><p style="margin-left:10px;width:30px"><a id="s16v" >000</a></p></div>
+	            <!--<div class="col-md-1"><input type="button" id="servo16" value="确定">&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+	        </div>
 
-    			<h4>Please enter a stock ticker eg. GOOG, and check desired features.</h4>
-
-    			<form id="input" method="post" action="servo1">	
-	  			<p>
-					Servo1: <input type="text" name="servo1">
-	  			</p>
-	  			<p>
-					<input type="checkbox" name="features" value="Close">Closing price<br>
-					<input type="checkbox" name="features" value="Adj. Close">Adjusted closing price<br>
-					<input type="checkbox" name="features" value="Open">Opening price<br>
-					<input type="checkbox" name="features" value="Adj. Open">Adjusted opening price<br>
-	    			<input type="submit" value="Submit">
-	  			</p>
-				</form>
-
-  			</div>
-		</div>
-	
-</body></html>
+        
+	</div>
+    </div>
+<script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap-slider.min.js') }}"></script>
+<script src="{{ url_for('static', filename='servo.js') }}"></script>
+</body>
+</html>
